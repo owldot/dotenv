@@ -1,207 +1,217 @@
 {
-    "workbench.startupEditor": "none",
-    "terminal.integrated.sendKeybindingsToShell": true,
-    "files.trimTrailingWhitespace": true,
-    "editor.tabSize": 2,
-    "files.autoSave": "onFocusChange",
-    "editor.formatOnType": true,
-    "editor.cursorBlinking": "smooth",
-    "editor.links": false,
-    // "editor.fontFamily": "JetBrains Mono",
-    "editor.fontWeight": "100",
-    // "editor.fontFamily": "GoMono Nerd Font",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 16,
-    "editor.bracketPairColorization.enabled": false,
-
-    "editor.guides.bracketPairs": "active",
-    "editor.guides.bracketPairsHorizontal": false,
-    "window.zoomLevel": 0,
-    "workbench.colorCustomizations": {
-        "[Tokyo Night]": {
-            "tab.activeBackground": "#49055f",
-            "tab.activeBorder":"#731f8b",
-            "tab.activeBorderTop": "#61279b",
-            "editorWhitespace.foreground": "#173742",
-            "editorBracketPairGuide.activeBackground1": "#0fbd9a",
-            "editorBracketPairGuide.activeBackground2": "#4b75cb",
-            "editorBracketPairGuide.activeBackground3": "#a366d9",
-            "editorBracketPairGuide.activeBackground4": "#d0719b",
-            "editorBracketPairGuide.activeBackground5": "#83D6C5",
-            "editorBracketPairGuide.activeBackground6": "#e5ee6c",
-        },
-        "[Tokyo Night Light]": {
-            "tab.activeBackground": "#f5b1f3",
-            "tab.activeForeground": "#250049",
-            "tab.activeBorderTop": "#de5bff",
-            "tab.activeBorder":"#de5bff",
-            "editorWhitespace.foreground": "#b1cad2",
-            "editorBracketPairGuide.activeBackground1": "#096c58",
-            "editorBracketPairGuide.activeBackground2": "#4b75cb",
-            "editorBracketPairGuide.activeBackground3": "#a366d9",
-            "editorBracketPairGuide.activeBackground4": "#d0719b",
-            "editorBracketPairGuide.activeBackground5": "#83D6C5",
-            "editorBracketPairGuide.activeBackground6": "#e5ee6c",
-        },
-        "[Solarized Light]": {
-            "tab.activeBackground": "#b9e5c4",
-            "tab.activeForeground": "#191919",
-            "tab.inactiveForeground": "#292929",
-            "terminal.background": "#111111",
-            "terminal.foreground": "#EEEEEE",
-            "editor.selectionBackground": "#f9dd87",
-            "editor.selectionHighlightBackground": "#cdffe8cc"
-        }
+  "workbench.panel.defaultLocation": "right",
+  "workbench.startupEditor": "none",
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnType": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.links": false,
+  //  "editor.fontFamily": "GoMono Nerd Font",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 16,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.hover.delay": 1000,
+  "workbench.colorTheme": "Tokyo Night Light",
+  "workbench.colorCustomizations": {
+    "[Tokyo Night]": {
+      "tab.activeBackground": "#313750",
+      "editorWhitespace.foreground": "#173742",
+      "editorBracketPairGuide.activeBackground1": "#0fbd9a",
+      "editorBracketPairGuide.activeBackground2": "#4b75cb",
+      "editorBracketPairGuide.activeBackground3": "#a366d9",
+      "editorBracketPairGuide.activeBackground4": "#d0719b",
+      "editorBracketPairGuide.activeBackground5": "#83D6C5",
+      "editorBracketPairGuide.activeBackground6": "#e5ee6c"
     },
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": ["keyword.control.def.ruby", "keyword.control.ruby","meta.function-call.ruby", "variable.parameter.function.ruby"],
-                   "settings": {
-                       "fontStyle": "",
-                    //    "foreground": "#9d3535"
-                    //    "foreground": "#65359D"
-                   }
-               },
-
-            {
-             "scope": "entity.name.function.ruby",
-                "settings": {
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                "scope": "entity.name.type.class.ruby",
-                "settings": {
-                    "fontStyle": "bold"
-                }
-            },
-        ]
+    "[Tokyo Night Light]": {
+      "editor.background": "#f4fbea",
+      "tab.activeBackground": "#8fbed9",
+      "editorWhitespace.foreground": "#ace5b3",
+      "editorLineNumber.activeForeground": "#045c3a",
+      "editor.lineHighlightBackground": "#35cf4022",
+      "editorBracketPairGuide.activeBackground1": "#096c58",
+      "editorBracketPairGuide.activeBackground2": "#3c5ea3",
+      "editorBracketPairGuide.activeBackground3": "#7d4ea7",
+      "editorBracketPairGuide.activeBackground4": "#a5597c",
+      "editorBracketPairGuide.activeBackground5": "#619e92",
+      "editorBracketPairGuide.activeBackground6": "#a0a64b"
     },
-    "gitlens.hovers.currentLine.over": "annotation",
-    "gitlens.currentLine.enabled": false,
-    "editor.renderWhitespace": "all",
-    "gitlens.heatmap.toggleMode": "file",
-    "gitlens.statusBar.enabled": true,
-    "prettier.singleQuote": true,
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false,
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.wordWrap": "on",
-        "editor.quickSuggestions": {
-            "comments": "off",
-            "strings": "off",
-            "other": "off"
-        }
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[erb]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[ruby]": {
-        "editor.formatOnSave": false,
-        "files.trimTrailingWhitespace": true,
-        // "editor.guides.bracketPairs": "active",
-        // "editor.guides.highlightActiveBracketPair": true,
-        "editor.language.colorizedBracketPairs": [
-            [
-                "do",
-                "end"
-            ],
-            [
-                "def",
-                "end"
-            ],
-            [
-                "class",
-                "end"
-            ],
-            [
-                "module",
-                "end"
-            ]
+    "[Spinel]": { "editor.background": "#111111" },
+    "[Tokyo Night Storm]": {
+      "tab.activeForeground": "#e6eaff",
+      "tab.inactiveForeground": "#959cbd",
+      "tab.unfocusedActiveForeground": "#b0b9e1",
+      "tab.selectedForeground": "#ffffff",
+      "tab.activeBackground": "#480056",
+      "editor.background": "#111122"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "keyword.control.def.ruby",
+          "keyword.control.ruby",
+          "meta.function-call.ruby",
+          "variable.parameter.function.ruby"
         ],
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true,
-        "editor.semanticHighlighting.enabled": true,
-        "editor.formatOnType": true,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-        "editor.rulers": [
-            120
-        ]
-    },
-    "editor.minimap.enabled": false,
-    "explorer.confirmDelete": false,
-    "prettier.arrowParens": "always",
-    "prettier.trailingComma": "none",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "typescript.preferences.quoteStyle": "double",
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "gitlens.blame.heatmap.location": "left",
-    "scm.diffDecorationsGutterWidth": 5,
-    "editor.rulers": [
-        120
+        "settings": {
+          "fontStyle": ""
+          //    "foreground": "#9d3535"
+          //    "foreground": "#65359D"
+        }
+      },
+
+      {
+        "scope": "entity.name.function.ruby",
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "entity.name.type.class.ruby",
+        "settings": {
+          "fontStyle": "bold"
+        }
+      }
     ],
-    "workbench.editor.wrapTabs": true,
-    "debug.console.fontSize": 14,
-    "terminal.integrated.fontSize": 14,
-    "debug.internalConsoleOptions": "neverOpen",
-    "pasteImage.path": "${projectRoot}/pasted_images",
-    "editor.inlineSuggest.enabled": true,
-    "editor.unicodeHighlight.invisibleCharacters": false,
+    "[Spinel]": {
+      "textMateRules": [
+        // {
+        //     "scope": [
+        //         "keyword.control",
+        //         "keyword.control.def.ruby",
+        //         "source.ruby"
+        //     ],
+        //     "settings": {
+        //         "foreground": "#0aff27"
+        //     }
+        // },
+        // {
+        //     "scope": [
+        //         "constant",
+        //         "constant.language.symbol.ruby"
+        //     ],
+        //     "settings": {
+        //         "foreground": "#20a801"
+        //     }
+        // },
+        // {
+        //     "scope": [
+        //         "constant.language.symbol.hashkey.ruby"
+        //     ],
+        //     "settings": {
+        //         "foreground": "#bd83ff"
+        //     }
+        // },
+        // {
+        //     "scope": [
+        //         "variable.other.constant.ruby"
+        //     ],
+        //     "settings": {
+        //         "foreground": "#83fbff"
+        //     }
+        // }
+      ]
+    }
+  },
+  "remote.SSH.defaultExtensions": ["eamodio.gitlens"],
+  "gitlens.hovers.currentLine.over": "annotation",
+  "editor.renderWhitespace": "all",
+  "gitlens.heatmap.toggleMode": "file",
+  "gitlens.blame.line.enabled": true,
+  "gitlens.statusBar.enabled": true,
+  "prettier.singleQuote": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.formatOnSave": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "ruby.format": false,
+  "ruby.useLanguageServer": false,
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnType": true,
     "files.insertFinalNewline": true,
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "git.ignoreMissingGitWarning": true,
-    "terminal.integrated.scrollback": 5000,
-    "bookmarks.saveBookmarksInProject": true,
-    "workbench.settings.applyToAllProfiles": [
-        "bookmarks.saveBookmarksInProject"
-    ],
-    "editor.inlayHints.enabled": "offUnlessPressed",
-    "explorer.fileNesting.patterns": {
-        "*.ts": "${capture}.js",
-        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-        "*.jsx": "${capture}.js",
-        "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
-        "*.sqlite": "${capture}.${extname}-*",
-        "*.db": "${capture}.${extname}-*",
-        "*.sqlite3": "${capture}.${extname}-*",
-        "*.db3": "${capture}.${extname}-*",
-        "*.sdb": "${capture}.${extname}-*",
-        "*.s3db": "${capture}.${extname}-*"
-    },
-    "workbench.colorTheme": "Tokyo Night Light",
-    "workbench.preferredDarkColorTheme": "Tokyo Night",
-    "workbench.preferredLightColorTheme": "Tokyo Night Light",
-    "cursor.cpp.enablePartialAccepts": true,
-    "cursor.composer.shouldAutoAcceptDiffs": false
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [120]
+  },
+  "ruby.lint": {
+    "rubocop": false
+  },
+  "editor.formatOnSaveTimeout": 1500,
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "prettier.arrowParens": "always",
+  "prettier.trailingComma": "none",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "typescript.preferences.quoteStyle": "double",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.blame.heatmap.location": "left",
+  "scm.diffDecorationsGutterWidth": 5,
+  "editor.rulers": [120],
+  "workbench.editor.wrapTabs": true,
+  "debug.console.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
+  "debug.internalConsoleOptions": "neverOpen",
+  "editor.inlineSuggest.enabled": true,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSaveMode": "file",
+  "git.ignoreMissingGitWarning": true,
+  "terminal.integrated.scrollback": 5000,
+  "bookmarks.saveBookmarksInProject": true,
+  "workbench.settings.applyToAllProfiles": ["bookmarks.saveBookmarksInProject"],
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "github.copilot.advanced": {},
+  "window.zoomLevel": 1,
+  "remote.SSH.connectTimeout": 150,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.iconTheme": "eq-material-theme-icons-deepforest",
+  // "workbench.colorTheme": "Tokyo Night Storm",
+  "git.openRepositoryInParentFolders": "always",
+  "editor.acceptSuggestionOnEnter": "off",
+  "workbench.preferredDarkColorTheme": "Tokyo Night",
+  "workbench.preferredLightColorTheme": "Tokyo Night Light",
+  "cursor.composer.shouldAllowCustomModes": true
 }
