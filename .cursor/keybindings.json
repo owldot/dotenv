@@ -337,7 +337,7 @@
   },
   {
     "key": "ctrl+cmd+t",
-    "command": "workbench.action.terminal.focusNext"
+    "command": "workbench.action.terminal.focusNext",
   },
   {
     "key": "shift+cmd+]",
