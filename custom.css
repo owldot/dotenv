@@ -1,0 +1,27 @@
+.graph-view-nav,
+.flashcards-nav, .favorites, .recent {display: none;}
+.bullet-container:not(.typed-list).bullet-closed {
+      background-color: #63b0d2;
+    }
+a.tag {
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .9em;
+    padding: 0 2px;
+    text-align: center;
+    font-weight: bold;
+	opacity: 1;
+}
+
+
+.ls-block .bullet {
+  background-color: var(--ls-active-primary-color);
+  box-shadow: 0 0 0 1px var(--ls-block-bullet-active-color);
+}
+
+.ls-block:not(:focus-within) .bullet {
+  background-color: var(--ls-active-primary-color);
+  transform: scale(1);
+  box-shadow: none;
+}
