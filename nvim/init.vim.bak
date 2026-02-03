@@ -1,0 +1,26 @@
+" Use system clipboard
+set clipboard=unnamedplus
+
+" Line numbers
+set number
+set relativenumber
+
+" Set colors
+set termguicolors
+highlight CursorLineNr guifg=#FFD700
+highlight LineNr guifg=#FFD700
+
+" Syntax highlighting
+syntax on
+
+" Highlight current line
+set cursorline
+
+" Show matching brackets
+set showmatch
+
+" Enable mouse
+set mouse=a
+
+" Keep a few lines visible while scrolling
+set scrolloff=3
