@@ -82,6 +82,11 @@ vim.opt.sessionoptions = {
 
 -- Keymaps
 
+vim.keymap.set("n", "<leader>o", ":Ex<CR>", { silent = true })
+
+vim.keymap.set("n", "[b", ":bp<CR>", { silent = true })
+vim.keymap.set("n", "]b", ":bn<CR>", { silent = true })
+
 -- Move lines
 vim.keymap.set("n", "<A-Down>", ":move .+1<CR>==", { silent = true })
 vim.keymap.set("n", "<A-Up>", ":move .-2<CR>==", { silent = true })
@@ -142,18 +147,28 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Session save on exit
-vim.api.nvim_create_autocmd("VimLeavePre", {
-  callback = function()
-    vim.cmd('mksession! ~/.config/nvim/session.vim')
-  end
-})
+--vim.api.nvim_create_autocmd("VimLeavePre", {
+--  callback = function()
+--    vim.cmd('mksession! ~/.config/nvim/session.vim')
+--  end
+--})
 
--- Session restore on startup (deferred to not interfere with LSP)
-vim.api.nvim_create_autocmd("VimEnter", {
+-- -- Session restore on startup (deferred to not interfere with LSP)
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     local session_file = vim.fn.expand('~/.config/nvim/session.vim')
+--     if vim.fn.argc() == 0 and vim.fn.filereadable(session_file) == 1 then
+--       vim.cmd('source ' .. session_file)
+--     end
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua", "rust", "ruby" },
   callback = function()
-    local session_file = vim.fn.expand('~/.config/nvim/session.vim')
-    if vim.fn.argc() == 0 and vim.fn.filereadable(session_file) == 1 then
-      vim.cmd('source ' .. session_file)
-    end
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.opt_local.foldlevel = 99
   end,
 })
+

@@ -15,6 +15,21 @@ vim.lsp.config.sorbet = {
 }
 vim.lsp.enable({ "sorbet" })
 
+
+vim.lsp.config.rust_analyzer = {
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" },
+  root_markers = { "Cargo.toml", "rust-project.json" },
+  settings = {
+   ["rust-analyzer"] = {
+     cargo = { allFeatures = true },
+     procMacro = { enable = true },
+     rustup = { toolchain = "nightly" }
+    },
+  },
+}
+vim.lsp.enable({ "rust_analyzer" })
+
 -- Configure diagnostics display
 vim.diagnostic.config({
   signs = true,
