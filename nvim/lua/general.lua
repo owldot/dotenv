@@ -80,6 +80,7 @@ vim.opt.sessionoptions = {
   "winsize",   -- window sizes
 }
 
+
 -- Keymaps
 vim.keymap.set("v", "<leader>p", "\"_dP") -- don't replace the register
 vim.keymap.set("n", "<leader>d", "\"_d") -- don't replace the register
@@ -105,7 +106,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Clear highlight
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
 
--- Telescope
+-- fff.nvim (fast file finder)
+vim.keymap.set("n", "<leader>ff", function() require('fff').find_files() end, { desc = "Find files (fff)" })
+vim.keymap.set("n", "<leader>fF", function() require('fff').find_in_git_root() end, { desc = "Find files in git root (fff)" })
+
+-- Telescope (grep, buffers, help)
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>fs', function()
   local glob = vim.fn.input('File mask (e.g. **/*.lua, empty for all): ')
@@ -116,7 +121,6 @@ vim.keymap.set('n', '<leader>fs', function()
   })
 end, { desc = 'Live grep (file mask)' })
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help" })

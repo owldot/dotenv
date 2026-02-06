@@ -66,6 +66,41 @@ return {
   },
 
   {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = function()
+      require('git-conflict').setup({
+        default_mappings = true,
+        highlights = {
+          incoming = 'DiffAdd',
+          current = 'DiffText',
+        },
+      })
+      -- Everforest-friendly conflict colors
+      vim.api.nvim_set_hl(0, 'GitConflictCurrent', { bg = '#2d3b2d' })
+      vim.api.nvim_set_hl(0, 'GitConflictCurrentLabel', { bg = '#3a4f3a' })
+      vim.api.nvim_set_hl(0, 'GitConflictIncoming', { bg = '#2d3539' })
+      vim.api.nvim_set_hl(0, 'GitConflictIncomingLabel', { bg = '#3a4a50' })
+    end,
+  },
+
+  {
+    'dmtrKovalenko/fff.nvim',
+    build = function()
+      require("fff.download").download_or_build_binary()
+    end,
+    lazy = false,
+    config = function()
+      require('fff').setup({
+        prompt = '> ',
+        max_results = 100,
+        preview = { enabled = true },
+        git = { status_text_color = true },
+      })
+    end,
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     config = function()
       require('gitsigns').setup({
