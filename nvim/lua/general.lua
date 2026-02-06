@@ -81,11 +81,9 @@ vim.opt.sessionoptions = {
 }
 
 -- Keymaps
-
-vim.keymap.set("n", "<leader>p", "_dP") -- don't replace the register
-vim.keymap.set("v", "<leader>p", "_dP") -- don't replace the register
-vim.keymap.set("n", "<leader>d", "_d") -- don't replace the register
-vim.keymap.set("v", "<leader>d", "_d") -- don't replace the register
+vim.keymap.set("v", "<leader>p", "\"_dP") -- don't replace the register
+vim.keymap.set("n", "<leader>d", "\"_d") -- don't replace the register
+vim.keymap.set("v", "<leader>d", "\"_d") -- don't replace the register
 
 vim.keymap.set("n", "<leader>o", ":Ex<CR>", { silent = true })
 
