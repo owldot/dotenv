@@ -82,6 +82,11 @@ vim.opt.sessionoptions = {
 
 -- Keymaps
 
+vim.keymap.set("n", "<leader>p", "_dP") -- don't replace the register
+vim.keymap.set("v", "<leader>p", "_dP") -- don't replace the register
+vim.keymap.set("n", "<leader>d", "_d") -- don't replace the register
+vim.keymap.set("v", "<leader>d", "_d") -- don't replace the register
+
 vim.keymap.set("n", "<leader>o", ":Ex<CR>", { silent = true })
 
 vim.keymap.set("n", "[b", ":bp<CR>", { silent = true })
@@ -104,6 +109,14 @@ vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
 
 -- Telescope
 local builtin = require("telescope.builtin")
+vim.keymap.set('n', '<leader>fs', function()
+  local glob = vim.fn.input('File mask (e.g. **/*.lua, empty for all): ')
+  require("telescope").extensions.live_grep_args.live_grep_args({
+    additional_args = glob ~= '' and function()
+      return { '--glob', glob }
+    end or nil,
+  })
+end, { desc = 'Live grep (file mask)' })
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
@@ -171,4 +184,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.foldlevel = 99
   end,
 })
-
