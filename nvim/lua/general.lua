@@ -1,6 +1,14 @@
+local colors = require('theme').colors
+
 -- Colors
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
+
+vim.api.nvim_create_user_command('SchemeToggle', function()
+  vim.o.background = (vim.o.background == 'dark') and 'light' or 'dark'
+  vim.cmd.colorscheme('everforest')
+  print('Scheme → ' .. vim.o.background)
+end, {})
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -58,15 +66,56 @@ _G.stl_mode = function()
 end
 
 vim.o.statusline = table.concat({
-  "%{v:lua.stl_mode()}",  -- mode
-  " %<%f",                 -- file path (truncate here if needed)
-  " %m",                   -- [+] if modified
-  " %r",                   -- [RO] if readonly
-  " %=",                   -- split left/right
-  " %{v:lua.stl_git()}",   -- git branch
-  "  %y",                  -- filetype
-  "  %l:%c",               -- line:col
-  "  %p%% ",               -- percent through file
+  "%#StatusLineMode#",
+  "%{v:lua.stl_mode()}",   -- mode indicator with dynamic highlight
+  "%*",
+  " %<%f",                  -- file path (truncate here if needed)
+  " %m",                    -- [+] if modified
+  " %r",                    -- [RO] if readonly
+  " %=",                    -- split left/right
+  " %{v:lua.stl_git()}",    -- git branch
+  "  %y",                   -- filetype
+  "%#StatusLineLC#",
+  "  %l:%c",                -- line:col (mode color)
+  "  %p%% ",                -- percent through file (mode color)
+  "%*",
+})
+
+local statusline_mode_colors = {
+  n = colors.bg_green,
+  i = colors.yellow,
+  v = colors.bg_visual,
+  V = colors.bg_visual,
+  ['\22'] = colors.bg_visual,
+}
+
+local statusline_mode_fg = {
+  n = colors.fg,
+  v = colors.fg,
+  V = colors.fg,
+  ['\22'] = colors.fg,
+}
+
+local function set_statusline_section_highlight(mode)
+  local color = statusline_mode_colors[mode] or statusline_mode_colors.n
+  local fg = statusline_mode_fg[mode] or colors.bg0
+  for _, group in ipairs({ 'StatusLineMode', 'StatusLineLC' }) do
+    vim.api.nvim_set_hl(0, group, { fg = fg, bg = color })
+  end
+end
+
+set_statusline_section_highlight(vim.fn.mode():sub(1, 1))
+
+vim.api.nvim_create_autocmd('ModeChanged', {
+  callback = function()
+    set_statusline_section_highlight(vim.fn.mode():sub(1, 1))
+  end,
+})
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    set_statusline_section_highlight(vim.fn.mode():sub(1, 1))
+  end,
 })
 
 -- Command line completion
@@ -140,13 +189,8 @@ vim.api.nvim_create_autocmd("FocusLost", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
-    -- LSP format if available
-    if vim.lsp.get_active_clients({bufnr = 0})[1] then
-      vim.lsp.buf.format({ async = false })
-    end
-
     -- Strip trailing whitespace
-    vim.cmd([[%s/\s\+$//e]])
+    vim.cmd([[:%s/\s\+$//e]])
   end,
 })
 

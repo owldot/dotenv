@@ -1,6 +1,8 @@
 local caps = vim.lsp.protocol.make_client_capabilities()
 caps.general.positionEncodings = { "utf-16" }
 
+local format_on_save_group = vim.api.nvim_create_augroup("LspFormatOnSave", {})
+
 vim.lsp.config.ruby_lsp = {
   cmd = { "ruby-lsp" },
   root_markers = { "Gemfile" },
@@ -48,6 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
     local opts = { buffer = ev.buf }
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
     -- Navigation
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -68,5 +71,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Code actions
     vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+
+    if client and client.server_capabilities.documentFormattingProvider then
+      vim.api.nvim_clear_autocmds({ group = format_on_save_group, buffer = ev.buf })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = format_on_save_group,
+        buffer = ev.buf,
+        callback = function()
+          vim.lsp.buf.format({ async = false, bufnr = ev.buf })
+        end,
+      })
+    end
   end
 })

@@ -1,3 +1,5 @@
+local colors = require('theme').colors
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -35,13 +37,21 @@ return {
     priority = 1000,
     config = function()
       vim.g.everforest_better_performance = 1
-      vim.cmd('colorscheme everforest')
 
-      -- Customize split divider and status line colors
-      vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#dbbc7f', bg = 'NONE' })
-      vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#2b3339', bg = '#dbbc7f' })
-      vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = '#2b3339', bg = '#a89063' })
-      vim.api.nvim_set_hl(0, 'DiagnosticOk', { fg = '#a7c080', bg = 'NONE' }) -- everforest green
+      local function apply_everforest_highlights()
+        vim.api.nvim_set_hl(0, 'WinSeparator', { fg = colors.yellow, bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'StatusLine', { fg = colors.fg, bg = colors.bg_blue })
+        vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = colors.fg, bg = colors.bg1 })
+        vim.api.nvim_set_hl(0, 'DiagnosticOk', { fg = colors.green, bg = 'NONE' })
+      end
+
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        pattern = 'everforest',
+        callback = apply_everforest_highlights,
+      })
+
+      vim.cmd('colorscheme everforest')
+      apply_everforest_highlights()
     end,
   },
 
@@ -77,10 +87,10 @@ return {
         },
       })
       -- Everforest-friendly conflict colors
-      vim.api.nvim_set_hl(0, 'GitConflictCurrent', { bg = '#2d3b2d' })
-      vim.api.nvim_set_hl(0, 'GitConflictCurrentLabel', { bg = '#3a4f3a' })
-      vim.api.nvim_set_hl(0, 'GitConflictIncoming', { bg = '#2d3539' })
-      vim.api.nvim_set_hl(0, 'GitConflictIncomingLabel', { bg = '#3a4a50' })
+      vim.api.nvim_set_hl(0, 'GitConflictCurrent', { bg = colors.git_current })
+      vim.api.nvim_set_hl(0, 'GitConflictCurrentLabel', { bg = colors.git_current_label })
+      vim.api.nvim_set_hl(0, 'GitConflictIncoming', { bg = colors.git_incoming })
+      vim.api.nvim_set_hl(0, 'GitConflictIncomingLabel', { bg = colors.git_incoming_label })
     end,
   },
 
