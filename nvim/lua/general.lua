@@ -13,6 +13,8 @@ end, {})
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
+vim.keymap.set("n", "<leader>cf", ":let @+ = expand(\"%\")<CR>")
+
 -- Mouse
 vim.opt.mouse = "a"
 
@@ -37,7 +39,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
+vim.opt.wrap = false
 -- System
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -46,6 +51,9 @@ vim.opt.undofile = true
 -- Status line
 vim.opt.laststatus = 2
 vim.opt.showmode = false  -- Hide default mode indicator
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 _G.stl_git = function()
   return vim.b.gitsigns_head and (" " .. vim.b.gitsigns_head) or ""
@@ -87,6 +95,7 @@ local statusline_mode_colors = {
   v = colors.bg_visual,
   V = colors.bg_visual,
   ['\22'] = colors.bg_visual,
+  c = colors.bg_green,
 }
 
 local statusline_mode_fg = {
@@ -94,6 +103,7 @@ local statusline_mode_fg = {
   v = colors.fg,
   V = colors.fg,
   ['\22'] = colors.fg,
+  c = colors.fg,
 }
 
 local function set_statusline_section_highlight(mode)
@@ -165,7 +175,7 @@ vim.keymap.set('n', '<leader>fs', function()
   local glob = vim.fn.input('File mask (e.g. **/*.lua, empty for all): ')
   require("telescope").extensions.live_grep_args.live_grep_args({
     additional_args = glob ~= '' and function()
-      return { '--glob', glob }
+      return { '--iglob', glob }
     end or nil,
   })
 end, { desc = 'Live grep (file mask)' })
@@ -173,6 +183,7 @@ vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help" })
+vim.keymap.set("n", "<leader>ft", builtin.git_files, { desc = "Git files" })
 
 -- Git
 vim.keymap.set("n", "<leader>gr", ":Gitsigns refresh<CR>", { desc = "Refresh git branch" })
